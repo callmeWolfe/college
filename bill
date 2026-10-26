@@ -1,130 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
+Program
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML Tags Demonstration</title>
+<title>Electricity Bill Calculator</title>
+<style>
+.error {
+color: red;
+}
+table {
+margin: 0 auto;
+border-collapse: collapse;
+width: 50%;
+}
+input {
+width: 100%;
+padding: 8px;
+margin: 5px 0;
+}
+input[type="submit"] {
+background-color: #007BFF;
+color: white;
+border: none;
+}
+.result {
+text-align: center;
+51
+20MCA133 – Web Programming Lab Manual
+margin-top: 20px;
+font-size: 18px;
+}
+</style>
 </head>
 <body>
-<!-- Heading Tags -->
-<h1>Welcome to HTML</h1>
-<h2>HTML Tags Demonstration</h2>
-<h3>MCA - KTU</h3>
-<!-- Paragraph Tag -->
-<p>
-</p>
-2
+<?php
+$nameErr = $unitsErr = $consumerNoErr = "";
+$name = $units = $consumerNo = "";
+$bill = 0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (empty($_POST["name"])) {
+$nameErr = "Name is required";
+} else {
+$name = htmlspecialchars(trim($_POST["name"]));
+}
+if (empty($_POST["units"])) {
+$unitsErr = "Units consumed is required";
+} elseif (!is_numeric($_POST["units"]) || $_POST["units"] < 0) {
+$unitsErr = "Please enter a valid number of units";
+} else {
+$units = (int)$_POST["units"];
+}
+if (empty($_POST["consumerNo"])) {
+$consumerNoErr = "Consumer number is required";
+} elseif (!is_numeric($_POST["consumerNo"]) || strlen($_POST["consumerNo"])
+< 5) {
+$consumerNoErr = "Please enter a valid consumer number (at least 5 digits)";
+} else {
+$consumerNo = htmlspecialchars(trim($_POST["consumerNo"]));
+}
+if (empty($nameErr) && empty($unitsErr) && empty($consumerNoErr)) {
+if ($units <= 100) {
+$bill = $units * 5;
+} elseif ($units <= 200) {
+52
 20MCA133 – Web Programming Lab Manual
-HTML stands for <b>HyperText Markup Language</b>.
-It is used to create and structure web pages.
-<!-- Text Formatting Tags -->
-<h2>Text Formatting</h2>
-<p>
-<b>Bold Text</b><br>
-<i>Italic Text</i><br>
-<u>Underlined Text</u><br>
-<strong>Strong Text</strong><br><em>Emphasized Text</em><br>
-H<sub>2</sub>O<br>
-X<sup>2</sup> + Y<sup>2</sup>
-</p>
-<!-- Horizontal Line -->
-<hr>
-<!-- Unordered List -->
-<h2>Programming Languages</h2>
-<ul>
-<li>Python</li>
-<li>Java</li>
-<li>C++</li>
-<li>JavaScript</li>
-</ul>
-<!-- Ordered List -->
-3
-20MCA133 – Web Programming Lab Manual
-<h2>Steps to Create a Web Page</h2>
-<ol>
-<li>Open a text editor</li>
-<li>Write HTML code</li>
-<li>Save the file with .html extension</li>
-<li>Open it in a web browser</li>
-</ol>
-<!-- Hyperlink -->
-<h2>Useful Link</h2>
-<p>
-Visit
-Google
-</a>
-</p>
-<a href="https://www.google.com" target="_blank"><!-- Image -->
-<h2>Image</h2>
-<img src="https://via.placeholder.com/200"
-alt="Sample Image"
-width="200"
-height="150">
-<!-- Table -->
-<h2>Student Details</h2>
-<table border="1" cellpadding="8" cellspacing="0">
-4
-20MCA133 – Web Programming Lab Manual
-<tr>
-<th>Roll No</th>
-<th>Name</th>
-<th>Course</th>
-</tr>
-<tr>
-<td>1</td>
-<td>Anu</td>
-<td>MCA</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Rahul</td>
-<td>MCA</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Meera</td>
-<td>MCA</td>
-</tr>
-</table>
-<!-- Form --><h2>Student Registration Form</h2>
-<form>
-5
-20MCA133 – Web Programming Lab Manual
-<label for="name">Name:</label>
-<input type="text" id="name" name="name">
-<br><br>
-<label for="email">Email:</label>
-<input type="email" id="email" name="email">
-<br><br>
-<label>Gender:</label>
-<input type="radio" id="male" name="gender" value="male">
-<label for="male">Male</label>
-<input type="radio" id="female" name="gender" value="female">
-<label for="female">Female</label>
-<br><br>
-<label>Skills:</label>
-<input type="checkbox" id="python" name="skills">
-<label for="python">Python</label>
-<input type="checkbox" id="java" name="skills">
-<label for="java">Java</label>
-<input type="checkbox" id="html" name="skills">
-<label for="html">HTML</label>
-<br><br>
-<label for="course">Course:</label>
-<select id="course" name="course"><option>MCA</option>
-<option>M.Tech</option>
-6
-20MCA133 – Web Programming Lab Manual
-<option>B.Tech</option>
-</select>
-<br><br>
-<input type="submit" value="Submit">
-<input type="reset" value="Reset">
+$bill = (100 * 5) + (($units - 100) * 7.5);
+} else {
+$bill = (100 * 5) + (100 * 7.5) + (($units - 200) * 10);
+}
+}
+}
+?>
+<h2 style="text-align:center;">Electricity Bill Calculator</h2>
+<form method="post" action="" style="max-width: 400px; margin: auto;">
+<label for="consumerNo">Consumer Number:</label>
+<input type="text" name="consumerNo" value="<?php echo $consumerNo; ?>">
+<span class="error"><?php echo $consumerNoErr; ?></span>
+<label for="name">Consumer Name:</label>
+<input type="text" name="name" value="<?php echo $name; ?>">
+<span class="error"><?php echo $nameErr; ?></span>
+<label for="units">Units Consumed:</label>
+<input type="number" name="units" value="<?php echo $units; ?>">
+<span class="error"><?php echo $unitsErr; ?></span>
+<input type="submit" value="Calculate Bill">
 </form>
-<!-- Footer -->
-<hr>
-<footer>
-</footer>
-<p>&copy; 2026 MCA - KTU</p>
+<?php if ($bill > 0): ?>
+<div class="result">
+<h3>Electricity Bill for Consumer No: <?php echo $consumerNo; ?> (<?php echo
+$ name; ?>):</h3>
+<p><strong>Units Consumed:</strong> <?php echo $units; ?></p>
+<p><strong>Total Amount:</strong> Rs. <?php echo $bill; ?></p>
+</div>
+<?php endif; ?>
 </body>
 </html>
+Expec
