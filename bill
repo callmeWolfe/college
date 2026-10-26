@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Tags Demonstration</title>
+</head>
+<body>
+<!-- Heading Tags -->
+<h1>Welcome to HTML</h1>
+<h2>HTML Tags Demonstration</h2>
+<h3>MCA - KTU</h3>
+<!-- Paragraph Tag -->
+<p>
+</p>
+2
+20MCA133 – Web Programming Lab Manual
+HTML stands for <b>HyperText Markup Language</b>.
+It is used to create and structure web pages.
+<!-- Text Formatting Tags -->
+<h2>Text Formatting</h2>
+<p>
+<b>Bold Text</b><br>
+<i>Italic Text</i><br>
+<u>Underlined Text</u><br>
+<strong>Strong Text</strong><br><em>Emphasized Text</em><br>
+H<sub>2</sub>O<br>
+X<sup>2</sup> + Y<sup>2</sup>
+</p>
+<!-- Horizontal Line -->
+<hr>
+<!-- Unordered List -->
+<h2>Programming Languages</h2>
+<ul>
+<li>Python</li>
+<li>Java</li>
+<li>C++</li>
+<li>JavaScript</li>
+</ul>
+<!-- Ordered List -->
+3
+20MCA133 – Web Programming Lab Manual
+<h2>Steps to Create a Web Page</h2>
+<ol>
+<li>Open a text editor</li>
+<li>Write HTML code</li>
+<li>Save the file with .html extension</li>
+<li>Open it in a web browser</li>
+</ol>
+<!-- Hyperlink -->
+<h2>Useful Link</h2>
+<p>
+Visit
+Google
+</a>
+</p>
+<a href="https://www.google.com" target="_blank"><!-- Image -->
+<h2>Image</h2>
+<img src="https://via.placeholder.com/200"
+alt="Sample Image"
+width="200"
+height="150">
+<!-- Table -->
+<h2>Student Details</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+4
+20MCA133 – Web Programming Lab Manual
+<tr>
+<th>Roll No</th>
+<th>Name</th>
+<th>Course</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Anu</td>
+<td>MCA</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Rahul</td>
+<td>MCA</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Meera</td>
+<td>MCA</td>
+</tr>
+</table>
+<!-- Form --><h2>Student Registration Form</h2>
+<form>
+5
+20MCA133 – Web Programming Lab Manual
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+<br><br>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email">
+<br><br>
+<label>Gender:</label>
+<input type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label>
+<br><br>
+<label>Skills:</label>
+<input type="checkbox" id="python" name="skills">
+<label for="python">Python</label>
+<input type="checkbox" id="java" name="skills">
+<label for="java">Java</label>
+<input type="checkbox" id="html" name="skills">
+<label for="html">HTML</label>
+<br><br>
+<label for="course">Course:</label>
+<select id="course" name="course"><option>MCA</option>
+<option>M.Tech</option>
+6
+20MCA133 – Web Programming Lab Manual
+<option>B.Tech</option>
+</select>
+<br><br>
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+<!-- Footer -->
+<hr>
+<footer>
+</footer>
+<p>&copy; 2026 MCA - KTU</p>
+</body>
+</html>
