@@ -1,0 +1,20 @@
+<html>
+<body>
+<?php
+$students = ["Thomas", "Vishnu", "Adwaith", "Joyal", "Abhijith"];
+echo "Original Array:\n";
+echo "<br>";
+print_r($students);
+asort($students);
+echo "<br> <br>";
+echo "\nArray Sorted in Ascending Order (asort):";
+echo "<br>";
+print_r($students);
+echo "<br> <br>";
+arsort($students);
+echo "\nArray Sorted in Descending Order (arsort):";
+echo "<br>";
+print_r($students);
+?>
+</body>
+</html>
