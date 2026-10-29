@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Indian Cricket Players</title>
+</head>
+<body>
+<?php
+$players = ["Virat Kohli", "Rohit Sharma", "Jasprit Bumrah", "KL Rahul", "Hardik
+Pandya"];
+echo "<table border=1>";
+echo "<tr><th>Player Names</th></tr>";
+foreach ($players as $player) {
+echo "<tr><td>$player</td></tr>";
+}
+echo "</table>";
+?>
+</body>
+</html>
