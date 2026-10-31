@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Online Exam</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Web Online Exam</h1>
+<div class="container ">
+<p>Q1. What is the Full Form of HTML</p><hr>
+<input type="radio" name="q1" >Hyperlink and Text Markup Language<br>
+<input type="radio" name="q1" >Hyper Tool Markup Language<br>
+<input type="radio" name="q1" >High Text Markup Language<br>
+<input type="radio" name="q1" id="correct1" >Hyper Text Markup Language<br>
+<br>
+<input type="button" class="next" value="NEXT" onclick="next(1)">
+</div>
+<div class="container ">
+<p>Q2. Who is making the Web standards?</p><hr>
+<input type="radio" name="q2" >Mozilla<br>
+<input type="radio" name="q2" >Google<br>
+<input type="radio" name="q2" id="correct2" >The World Wide Web Consortium<br>
+<input type="radio" name="q2" >Microsoft<br>
+<br>
+<input type="button" class="next" value="NEXT" onclick="next(2)">
+</div>
+<div class="container ">
+<p>Q3. What is the correct HTML element for inserting a line break?</p><hr>
+<input type="radio" name="q3" id="correct3" >br<br>
+<input type="radio" name="q3" >lb<br>
+<input type="radio" name="q3">break<br>
+<input type="radio" name="q3" class="radio">\n<br>
+<br>
+<input type="button" class="next" value="NEXT" onclick="next(3)">
+</div>
+<div class="container ">
+<p>Q4. How can you make a numbered list?</p><hr>
+<input type="radio" name="q4" >ul<br>
+<input type="radio" name="q4"id="correct4" >ol<br>
+<input type="radio" name="q4" >nl<br>
+<input type="radio" name="q4" >list<br>
+<br>
+<input type="button" class="submit" value="Submit Quiz" onclick="result()">
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+Script.js
+document.getElementsByClassName('container')[0].style.display='block';
+function next(id){
+document.getElementsByClassName('container')[id-1].style.display='none';
+document.getElementsByClassName('container')[id].style.display='block';
+}
+function result(){
+var score = 0;
+if(document.getElementById('correct1').checked){
+score++;
+}
+if(document.getElementById('correct2').checked){
+score++;
+}
+if(document.getElementById('correct3').checked){
+score++;
+}
+if(document.getElementById('correct4').checked){
+score++;
+}
+alert("Your score is: "+score);
+}
+Style.css
+.container{
+border: 3px solid #CB9DF0;
+border-radius: 10px;
+width: 60%;
+padding: 20px;
+display: none;
+margin-left: 20%;
+}
+.next,.submit{
+background-color: #CB9DF0;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+}
+h1{
+color:#CB9DF0;
+text-align: center;
+}
